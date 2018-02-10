@@ -1,7 +1,23 @@
-.App {
+.Title {
   text-align: center;
+}
+
+.text {
+  text-align: center;
+}
+
+.guess-letter {
+  margin: 20px;
 }
 
 body {
   margin: 50px;
+}
+
+main {
+  margin: 20px;
+}
+
+input {
+  margin: 10px;
 }
