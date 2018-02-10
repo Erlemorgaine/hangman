@@ -1,11 +1,14 @@
 import { GUESS_LETTER } from '../actions/guessLetter'
 
-const guesses = ['e']
+const guesses = ['e', 'p']
 
 export default (state = guesses, { type, payload } = {}) => {
   switch(type) {
     case GUESS_LETTER :
-      return guesses.push(payload)
+      const newLetter = payload.guess
+      guesses.push(newLetter)
+      console.log(guesses)
+      return [guesses]
     default :
       return state
   }

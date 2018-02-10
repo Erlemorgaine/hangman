@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Title from '../components/Title'
-import GuessLetter from './GuessLetter'
+import Word from './Word'
 //import _ from 'underscore'
 
 class HangmanGame extends PureComponent {
@@ -16,7 +16,7 @@ class HangmanGame extends PureComponent {
         </header>
 
 
-        <GuessLetter word={word} />
+        <Word word={word} />
       </div>
     )
   }

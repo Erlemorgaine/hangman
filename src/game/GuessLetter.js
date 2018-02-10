@@ -1,33 +1,17 @@
 import React, { PureComponent } from 'react'
+//import Editor from 'react-medium-editor'
+//import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+//import PropTypes from 'prop-types'
+import guessLetter from '../actions/guessLetter'
 
 class GuessLetter extends PureComponent {
-  static propTypes = {
-    word: PropTypes.string.isRequired,
-    guesses: PropTypes.array
-  }
 
   constructor(props) {
     super()
 
-    const guess = props
-    this.state = {
-      guess
-    }
-  }
-
-  renderWord(word, guesses) {
-    var letters = word.split("")
-    var guessArray = letters.map(function (letter) {
-      if (guesses.indexOf(letter) !== -1) {
-        return letter
-      } else {
-        return "_"
-      }
-    })
-    var guessWord = guessArray.join(" ")
-    return guessWord
+    const {guess} = props
+    this.state = {guess}
   }
 
   makeGuess(event) {
@@ -36,17 +20,31 @@ class GuessLetter extends PureComponent {
     })
   }
 
+  saveGuess() {
+    const guess = this.state
+
+    this.props.guessLetter(guess)
+  }
+
   render() {
     return(
-      <main>
-        { this.renderWord(this.props.word, this.props.guesses) }
-      </main>
+      <div className="guess-letter">
+        <div className="text">
+          <input
+            type="text"
+            ref="guess"
+            className="title"
+            placeholder="guess a letter if you dare..."
+            defaultValue={this.state.guess}
+            onChange={this.makeGuess.bind(this)}
+            onKeyDown={this.makeGuess.bind(this)}/>
+        </div>
+        <div className="actions text">
+          <button className="primary" onClick={this.saveGuess.bind(this)}>Submit</button>
+        </div>
+      </div>
     )
   }
 }
 
-const mapStateToProps = ({ guesses }) => ({
-  guesses
-})
-
-export default connect(mapStateToProps)(GuessLetter)
+export default connect(null, { guessLetter })(GuessLetter)
