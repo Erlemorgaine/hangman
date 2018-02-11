@@ -1,0 +1,16 @@
+svg {
+  margin: 0 auto;
+}
+
+line {
+  stroke: black;
+  stroke-width: 4;
+}
+
+#door1 {
+  transform-origin: 0% 100%;
+}
+
+#door2 {
+  transform-origin: 100% 100%;
+}

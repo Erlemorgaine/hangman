@@ -33,9 +33,9 @@ class HangmanGame extends PureComponent {
     if (unguessedLetters.length === 0) {
       //return true
       return( <p>Not dying today, you lucky bastard!</p> )
-    } else if (this.wrongGuessCount(word, this.props.guesses) > 9){
+    } else if (this.wrongGuessCount(word, this.props.guesses) > 7){
       //return false
-      return(<p>Dead men tell no tales...</p>)
+      return(<p>Dead men tell no tales... YOU HANG!!</p>)
     }
   }
 
@@ -59,7 +59,8 @@ class HangmanGame extends PureComponent {
         </header>
         <Word word={ this.state.word } />
         <HangmanDrawing />
-        <div>You have { 10 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go. Choose wisely!</div>
+        <br/>
+        <div>You have { 8 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go.</div>
         <div>{ this.isWinner(this.state.word, this.state.guesses) }</div>
         <br/><br/>
         <button className="primary" onClick={this.newWord.bind(this)}>New game</button>
