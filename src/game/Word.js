@@ -12,7 +12,6 @@ class Word extends PureComponent {
 
   renderWord(word, guesses) {
     var letters = word.split("")
-    //console.log(guesses)
     var guessArray = letters.map(function (letter) {
       if (guesses.indexOf(letter) !== -1) {
         return letter

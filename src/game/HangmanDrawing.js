@@ -91,8 +91,6 @@ class HangmanDrawing extends PureComponent {
     return _.first(hangmanParts, [wrongGuesses.length])
   }
 
-
-
   render() {
     return(
       <div className="hangman">

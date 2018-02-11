@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react'
-//import Editor from 'react-medium-editor'
-//import toMarkdown from 'to-markdown'
 import { connect } from 'react-redux'
-//import PropTypes from 'prop-types'
 import guessLetter from '../actions/guessLetter'
 
 class GuessLetter extends PureComponent {

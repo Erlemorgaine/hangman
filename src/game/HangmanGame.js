@@ -58,9 +58,9 @@ class HangmanGame extends PureComponent {
           <Title content='Can You Escape the Gallows...?'/>
         </header>
         <Word word={ this.state.word } />
+        <div className="guesses">You have { 8 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go.</div>
         <HangmanDrawing />
         <br/>
-        <div>You have { 8 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go.</div>
         <div>{ this.isWinner(this.state.word, this.state.guesses) }</div>
         <br/><br/>
         <button className="primary" onClick={this.newWord.bind(this)}>New game</button>
