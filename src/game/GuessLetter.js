@@ -37,7 +37,7 @@ class GuessLetter extends PureComponent {
             onKeyDown={this.makeGuess.bind(this)}/>
         </div>
         <div className="actions text">
-          <button className="primary" onClick={this.saveGuess.bind(this)}>Submit</button>
+          <button className="primary" onClick={this.saveGuess.bind(this) }>Submit</button>
         </div>
       </div>
     )
