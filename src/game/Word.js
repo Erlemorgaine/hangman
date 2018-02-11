@@ -24,24 +24,11 @@ class Word extends PureComponent {
     return guessWord
   }
 
-  wrongGuessCount(word, guesses) {
-    var letters = word.split("")
-    //var guesses =
-
-    var wrongGuesses = guesses.filter(function (guess) {
-      console.log(guess)
-      return letters.indexOf(guess) === -1;
-    });
-    console.log(wrongGuesses)
-    return wrongGuesses.length
-  }
-
   render() {
     return(
       <main>
         <div className="text">{ this.renderWord(this.props.word, this.props.guesses) }</div>
         <GuessLetter />
-        <div>You guessed { this.wrongGuessCount(this.props.word, this.props.guesses) } times wrong... </div>
       </main>
     )
   }
