@@ -1,6 +1,6 @@
 import { GUESS_LETTER } from '../actions/guessLetter'
 
-const guesses = ['e', 'p']
+const guesses = []
 
 export default (state = guesses, { type, payload } = {}) => {
   switch(type) {

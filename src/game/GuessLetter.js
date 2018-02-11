@@ -35,7 +35,7 @@ class GuessLetter extends PureComponent {
             ref="guess"
             className="title"
             placeholder="guess a letter if you dare..."
-            defaultValue={this.state.guess}
+            defaultValue=""
             onChange={this.makeGuess.bind(this)}
             onKeyDown={this.makeGuess.bind(this)}/>
         </div>
@@ -46,9 +46,5 @@ class GuessLetter extends PureComponent {
     )
   }
 }
-
-// const mapStateToProps = ({ guesses }) => ({
-//   guesses
-// })
 
 export default connect(null, { guessLetter })(GuessLetter)
