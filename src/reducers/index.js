@@ -1,7 +1,7 @@
-import words from './words'
+import word from './word'
 import guesses from './guesses'
 
 export default {
-  words,
+  word,
   guesses,
 }

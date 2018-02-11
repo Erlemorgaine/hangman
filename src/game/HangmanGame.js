@@ -2,9 +2,18 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import Title from '../components/Title'
 import Word from './Word'
+import HangmanDrawing from './HangmanDrawing'
+import words from '../words'
 import _ from 'underscore'
 
 class HangmanGame extends PureComponent {
+
+  constructor(props) {
+    super()
+
+    const {word, guesses} = props
+    this.state = {word, guesses}
+  }
 
   wrongGuessCount(word, guesses) {
     var letters = word.split("")
@@ -30,43 +39,37 @@ class HangmanGame extends PureComponent {
     }
   }
 
-  setWord() {
-    return _.sample(this.props.words)
+  newWord(event) {
+    this.setState({
+      word: _.sample(words)
+    })
   }
 
   newGame() {
-    const word = this.setWord()
-    return(
-      <div className="recipes wrapper">
-        <header>
-          <Title content='Can You Escape the Gallows...?'/>
-        </header>
-        <Word word={word} />
-        <div>You guessed { this.wrongGuessCount(word, this.props.guesses) } times wrong. </div>
-        <div>{ this.isWinner(word, this.props.guesses) }</div>
-      </div>
-    )
-  }
-
-  newGameClass() {
-    return 'new-game'
+    // const word = _.sample(words)
+    // const guesses = []
+    // this.setState({word, guesses})
   }
 
   render() {
-    //const word = _.sample(this.props.words)
     return(
       <div>
-
-        <button
-          className={this.newGameClass()} onClick={this.newGame}>New game
-        </button>
+        <header>
+          <Title content='Can You Escape the Gallows...?'/>
+        </header>
+        <Word word={ this.state.word } />
+        <HangmanDrawing />
+        <div>You have { 10 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go. Choose wisely!</div>
+        <div>{ this.isWinner(this.state.word, this.state.guesses) }</div>
+        <br/><br/>
+        <button className="primary" onClick={this.newWord.bind(this)}>New game</button>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ words, guesses }) => ({
-  words,
+const mapStateToProps = ({ word, guesses }) => ({
+  word,
   guesses
 })
 
