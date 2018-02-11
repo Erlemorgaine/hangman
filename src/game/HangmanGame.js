@@ -21,7 +21,11 @@ class HangmanGame extends PureComponent {
     var wrongGuesses = guesses.filter(function (guess) {
       return letters.indexOf(guess) === -1;
     });
-    return wrongGuesses.length
+
+    if (wrongGuesses.length > 7) {
+      return 'You cannot guess anymore... You are DEAD'
+    }
+    return `You have ${8-wrongGuesses.length} more guesses to go.`
   }
 
   isWinner(word, guesses) {
@@ -31,10 +35,8 @@ class HangmanGame extends PureComponent {
     });
 
     if (unguessedLetters.length === 0) {
-      //return true
       return( <p>Not dying today, you lucky bastard!</p> )
     } else if (this.wrongGuessCount(word, this.props.guesses) > 7){
-      //return false
       return(<p>Dead men tell no tales... YOU HANG!!</p>)
     }
   }
@@ -58,7 +60,7 @@ class HangmanGame extends PureComponent {
           <Title content='Can You Escape the Gallows...?'/>
         </header>
         <Word word={ this.state.word } />
-        <div className="guesses">You have { 8 - this.wrongGuessCount(this.state.word, this.state.guesses) } more guesses to go.</div>
+        <div className="guesses">{ this.wrongGuessCount(this.state.word, this.state.guesses) }</div>
         <HangmanDrawing />
         <br/>
         <div>{ this.isWinner(this.state.word, this.state.guesses) }</div>
