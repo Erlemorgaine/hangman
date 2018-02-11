@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import GuessLetter from './GuessLetter'
-import _ from 'underscore'
+//import _ from 'underscore'
 
 class Word extends PureComponent {
   static propTypes = {
@@ -12,7 +12,7 @@ class Word extends PureComponent {
 
   renderWord(word, guesses) {
     var letters = word.split("")
-    guesses = _.flatten(guesses)
+    console.log(guesses)
     var guessArray = letters.map(function (letter) {
       if (guesses.indexOf(letter) !== -1) {
         return letter
