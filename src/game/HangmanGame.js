@@ -6,6 +6,15 @@ import Word from './Word'
 
 class HangmanGame extends PureComponent {
 
+  // wrongGuessCount(word, guesses) {
+  //   var letters = word.split("")
+  //
+  //   var wrongGuesses = guesses.filter(function (guess) {
+  //     return letters.indexOf(guess) === -1;
+  //   });
+  //   return wrongGuesses.length
+  // }
+
   render() {
     //const word = _.sample(this.props.words)
     const word = this.props.words[0]
@@ -14,16 +23,15 @@ class HangmanGame extends PureComponent {
         <header>
           <Title content='Can You Escape the Gallows...?'/>
         </header>
-
-
         <Word word={word} />
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ words }) => ({
-  words
+const mapStateToProps = ({ words, guesses }) => ({
+  words,
+  guesses
 })
 
 export default connect(mapStateToProps)(HangmanGame)

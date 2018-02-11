@@ -47,4 +47,8 @@ class GuessLetter extends PureComponent {
   }
 }
 
+// const mapStateToProps = ({ guesses }) => ({
+//   guesses
+// })
+
 export default connect(null, { guessLetter })(GuessLetter)
