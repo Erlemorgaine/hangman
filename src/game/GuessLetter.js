@@ -19,8 +19,9 @@ class GuessLetter extends PureComponent {
 
   saveGuess() {
     const guess = this.state
-
     this.props.guessLetter(guess)
+
+    document.getElementById('enter-guess').value=""
   }
 
   render() {
@@ -29,6 +30,7 @@ class GuessLetter extends PureComponent {
         <div className="text">
           <input
             type="text"
+            id="enter-guess"
             ref="guess"
             className="title"
             placeholder="guess a letter if you dare..."
