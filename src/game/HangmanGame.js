@@ -48,6 +48,7 @@ class HangmanGame extends PureComponent {
     // const word = _.sample(words)
     // const guesses = []
     // this.setState({word, guesses})
+    window.location.reload()
   }
 
   render() {
@@ -63,7 +64,7 @@ class HangmanGame extends PureComponent {
         <div className="win">{ this.isWinner(this.state.word, this.state.guesses) }</div>
         <HangmanDrawing />
         <br/><br/>
-        <button className="primary" onClick={this.newWord.bind(this)}>New game</button>
+        <button className="primary" onClick={this.newGame.bind(this)}>New game</button>
       </div>
     )
   }
