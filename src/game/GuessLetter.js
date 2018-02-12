@@ -12,15 +12,18 @@ class GuessLetter extends PureComponent {
   }
 
   makeGuess(event) {
-    this.setState({
-      guess: this.refs.guess.value
+      this.setState({
+        guess: this.refs.guess.value
     })
   }
 
   saveGuess() {
-    const guess = this.state
-    this.props.guessLetter(guess)
-
+    const guess = this.state.guess
+    if(this.refs.guess.value.length < 2) {
+      this.props.guessLetter(guess)
+    } else {
+      alert('You can only pick one letter, you greedy bastard')
+    }
     document.getElementById('enter-guess').value=""
   }
 

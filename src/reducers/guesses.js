@@ -5,7 +5,7 @@ const guesses = []
 export default (state = guesses, { type, payload } = {}) => {
   switch(type) {
     case GUESS_LETTER :
-      const newLetter = payload.guess
+      const newLetter = payload
       guesses.push(newLetter)
       return [...guesses]
     default :
